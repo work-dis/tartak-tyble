@@ -114,6 +114,23 @@ a:hover {
 
 .sp-megamenu-parent > li {
   position: relative;
+  flex: 0 0 auto;
+  min-width: 160px;
+  text-align: center;
+}
+
+.sp-megamenu-parent > li > a,
+.sp-megamenu-parent > li > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 108px;
+  padding: 0 28px;
+  white-space: nowrap;
+}
+
+.sp-megamenu-parent > li:last-child {
+  min-width: 175px;
 }
 
 .sp-megamenu-parent > li.sp-has-child > a::after {
