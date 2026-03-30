@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tartak Tyble</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="font-awesome-5.min.css">
+  <link rel="stylesheet" href="animate.min.css">
+  <link rel="stylesheet" href="template.css">
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="custom.css">
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .sp-module-title,
+    .sppb-addon-title {
+      font-family: "Roboto Slab", Georgia, serif;
+    }
+
+    #sp-top-bar .container,
+    #sp-header .container,
+    #sp-bottom .container,
+    #sp-footer .container,
+    .section-shell {
+      max-width: 1200px;
+    }
+
+    #sp-top-bar {
+      background: #7e746d;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    #sp-top1 {
+      color: rgba(255, 255, 255, 0.94);
+      font-weight: 500;
+    }
+
+    .topbar-meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      line-height: 1.5;
+    }
+
+    .topbar-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .topbar-meta i {
+      color: #f1ddd2;
+      font-size: 13px;
+    }
+
+    #sp-top2 {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    #sp-top2 > ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    #sp-top2 > ul > li {
+      margin-right: 0;
+      padding: 0;
+    }
+
+    #sp-top-bar #sp-top2 > ul > li > a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    #sp-top-bar #sp-top2 > ul > li > a:hover {
+      background: #ffffff;
+      color: #5e5651;
+      border-color: #ffffff;
+    }
+
+    #sp-header {
+      height: auto;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-nav-row {
+      min-height: 72px;
+    }
+
+    #sp-menu {
+      border: 0;
+    }
+
+    .sp-megamenu-parent {
+      align-items: stretch;
+    }
+
+    .sp-megamenu-parent > li {
+      position: relative;
+    }
+
+    .sp-megamenu-parent > li.sp-has-child > a::after {
+      content: "\f078";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 10px;
+      margin-left: 9px;
+      color: #8a817d;
+    }
+
+    .sp-megamenu-parent .sp-dropdown {
+      position: absolute;
+      top: calc(100% + 1px);
+      left: 0;
+      min-width: 290px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 220ms ease;
+      z-index: 30;
+    }
+
+    .sp-megamenu-parent > li:hover > .sp-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .sp-megamenu-parent .sp-dropdown .sp-dropdown-inner {
+      background: #ffffff;
+      border: 1px solid #efefef;
+      border-bottom: 3px solid #6e6663;
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.08);
+      padding: 16px 24px;
+    }
+
+    .sp-megamenu-parent .sp-dropdown li {
+      display: block;
+      margin: 0;
+    }
+
+    .sp-megamenu-parent .sp-dropdown li a {
+      display: block;
+      padding: 10px 0;
+      color: #353130;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.45;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    .sp-megamenu-parent .sp-dropdown li:last-child a {
+      border-bottom: 0;
+    }
+
+    .sp-megamenu-parent .sp-dropdown li a:hover {
+      color: #6e6663;
+      padding-left: 6px;
+    }
+
+    .hero-home {
+      position: relative;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(18, 18, 18, 0.48), rgba(18, 18, 18, 0.62)),
+        url("tartak.jpg") center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero-home .hero-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      color: #ffffff;
+      padding: 120px 0 110px;
+    }
+
+    .hero-home .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      color: #f3efe9;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero-home h1 {
+      color: #ffffff;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.04;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .hero-home p {
+      max-width: 620px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      line-height: 1.85;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .btn-outline-light {
+      border-radius: 0;
+      padding: 14px 30px;
+      border: 2px solid rgba(255, 255, 255, 0.55);
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-actions .btn-outline-light:hover {
+      background: #ffffff;
+      color: #232323;
+    }
+
+    .feature-strip {
+      position: relative;
+      margin-top: -68px;
+      z-index: 4;
+    }
+
+    .feature-strip .tile {
+      height: 100%;
+      padding: 30px 28px;
+      background: #ffffff;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-strip .tile .icon {
+      color: #6e6663;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .feature-strip .tile h3 {
+      font-size: 22px;
+      color: #232323;
+      margin-bottom: 10px;
+    }
+
+    .feature-strip .tile p {
+      margin: 0;
+      color: #777777;
+      line-height: 1.8;
+    }
+
+    .section-pad {
+      padding: 110px 0;
+    }
+
+    .section-pad-sm {
+      padding: 90px 0;
+    }
+
+    .section-lead {
+      color: #888888;
+      max-width: 760px;
+      margin: 0 auto 55px;
+      text-align: center;
+      line-height: 1.9;
+      font-size: 17px;
+    }
+
+    .section-dark {
+      background:
+        linear-gradient(rgba(19, 29, 51, 0.92), rgba(19, 29, 51, 0.92)),
+        url("technologia.jpg") center/cover no-repeat;
+    }
+
+    .section-dark .sppb-addon-title,
+    .section-dark .section-lead {
+      color: #ffffff;
+    }
+
+    .about-panel {
+      background: #ffffff;
+      border: 1px solid #f0f0f0;
+      padding: 44px;
+      height: 100%;
+    }
+
+    .about-panel p {
+      color: #7b7b7b;
+      line-height: 1.95;
+      margin-bottom: 18px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .stat-box {
+      padding: 24px;
+      border: 1px solid #f0f0f0;
+      background: #fafafa;
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      color: #232323;
+      margin-bottom: 8px;
+    }
+
+    .stat-box span {
+      color: #7d7d7d;
+      font-size: 15px;
+    }
+
+    .gallery-card img,
+    .project-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-photo {
+      overflow: hidden;
+      border: 1px solid #f0f0f0;
+      height: 100%;
+    }
+
+    .home-article .sppb-addon-article h3,
+    .home-article .sppb-addon-article .sppb-article-meta,
+    .home-article .sppb-addon-article .sppb-article-introtext,
+    .home-article .sppb-addon-article .sppb-readmore {
+      position: relative;
+      z-index: 100;
+    }
+
+    .home-article .sppb-addon-article:hover h3 a,
+    .home-article .sppb-addon-article:hover .sppb-article-meta,
+    .home-article .sppb-addon-article:hover .sppb-article-introtext,
+    .home-article .sppb-addon-article:hover .sppb-readmore {
+      color: #ffffff !important;
+    }
+
+    .contact-panel {
+      background: #ffffff;
+      border: 1px solid #f0f0f0;
+      padding: 38px;
+      height: 100%;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-list li {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid #f0f0f0;
+      color: #777777;
+    }
+
+    .contact-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-list i {
+      color: #6e6663;
+      margin-top: 5px;
+    }
+
+    .contact-list strong {
+      display: block;
+      color: #232323;
+      margin-bottom: 4px;
+    }
+
+    .contact-panel .btn-primary,
+    .hero-actions .btn-primary {
+      padding: 14px 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .footer-logo {
+      max-width: 170px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 991px) {
+      #sp-menu {
+        display: none;
+      }
+
+      #sp-top1,
+      #sp-top2 {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .feature-strip {
+        margin-top: 40px;
+      }
+
+      .hero-home .hero-copy {
+        padding: 90px 0 80px;
+      }
+
+      .section-pad,
+      .section-pad-sm {
+        padding: 75px 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      #sp-top-bar {
+        padding: 12px 0;
+      }
+
+      #sp-top2 > ul {
+        justify-content: center;
+      }
+
+      #sp-top-bar #sp-top2 > ul > li > a {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .topbar-meta {
+        justify-content: center;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-panel,
+      .contact-panel {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+  <body>
+  <div id="sp-top-bar">
+    <div class="container">
+      <div class="row align-items-center">
+        <div id="sp-top1" class="col-lg-6 col-md-6">
+          <div class="topbar-meta">
+            <span><i class="fas fa-map-marker-alt"></i>Tyble 45A, 98-420 Sokolniki, Polska</span>
+            <span><i class="fas fa-clock"></i>Pon-Pt 07.00-15.00</span>
+          </div>
+        </div>
+        <div id="sp-top2" class="col-lg-6 col-md-6">
+          <ul class="list-unstyled mb-0">
+            <li><a href="tel:+48627845119">Dział handlowy: +48 62 784 51 19</a></li>
+            <li><a href="mailto:tartak@tyble.pl">tartak@tyble.pl</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header id="sp-header">
+    <div class="container">
+      <div class="row align-items-center header-nav-row">
+        <div id="sp-menu" class="col-12">
+          <nav class="sp-megamenu-wrapper d-flex justify-content-end">
+            <ul class="sp-megamenu-parent menu-animation-fade-up d-flex list-unstyled mb-0">
+              <li class="active"><a href="index.html">Start</a></li>
+              <li class="sp-has-child">
+                <a href="o-nas.html">O nas</a>
+                <div class="sp-dropdown sp-dropdown-main">
+                  <div class="sp-dropdown-inner">
+                    <ul class="list-unstyled mb-0">
+                      <li><a href="historia.html">Historia</a></li>
+                      <li><a href="technologia.html">Technologia</a></li>
+                      <li><a href="jakosc.html">Jakość</a></li>
+                      <li><a href="park-maszynowy.html">Park maszynowy</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="sp-has-child">
+                <a href="produkty.html">Produkty</a>
+                <div class="sp-dropdown sp-dropdown-main">
+                  <div class="sp-dropdown-inner">
+                    <ul class="list-unstyled mb-0">
+                      <li><a href="produkty.html#deska-sosnowa">Deska sosnowa podłogowa</a></li>
+                      <li><a href="produkty.html#elewacyjne">Deski elewacyjne i podbitkowe</a></li>
+                      <li><a href="produkty.html#fryzy">Fryzy</a></li>
+                      <li><a href="produkty.html#ogrod">Program ogrodowy</a></li>
+                      <li><a href="produkty.html#tarasowa">Deska podłogowa i tarasowa</a></li>
+                      <li><a href="produkty.html#klejone">Elementy klejone i półfabrykaty meblowe</a></li>
+                      <li><a href="produkty.html#listwy">Listwy wykończeniowe</a></li>
+                      <li><a href="produkty.html#konstrukcyjne">Drewno konstrukcyjne</a></li>
+                      <li><a href="produkty.html#tarcica">Tarcica</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li><a href="aktualnosci.html">Aktualności</a></li>
+              <li><a href="porady.html">Porady</a></li>
+              <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero-home">
+      <div class="container section-shell">
+        <div class="hero-copy">
+          <span class="eyebrow">Tartak Tyble</span>
+          <h1>Drewno do budowy, wykończenia i solidnych realizacji prywatnych</h1>
+          <p>
+            Złożyliśmy lokalną stronę główną z dostępnych assetów: z tym samym charakterem,
+            ciepłą paletą, wyrazistą typografią i kartami produktów, które już wspierają
+            istniejące style motywu.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="produkty.html">Zobacz produkty</a>
+            <a class="btn btn-outline-light" href="kontakt.html">Poproś o wycenę</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-strip">
+      <div class="container section-shell">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="tile">
+              <div class="icon"><i class="fas fa-tree"></i></div>
+              <h3>Własna produkcja</h3>
+              <p>Rozkrój, suszenie, struganie i sortowanie w jednym procesie bez utraty jakości na żadnym etapie.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="tile">
+              <div class="icon"><i class="fas fa-ruler-combined"></i></div>
+              <h3>Dokładna geometria</h3>
+              <p>Tarcica do budownictwa prywatnego, elewacji, tarasów, konstrukcji ogrodowych i wykończenia wnętrz.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="tile">
+              <div class="icon"><i class="fas fa-truck"></i></div>
+              <h3>Sprawna dostawa</h3>
+              <p>Pomagamy skompletować zamówienie, dobrać przekroje i przygotować materiał do wysyłki pod konkretną inwestycję.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-pad">
+      <div class="container section-shell">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <div class="gallery-card">
+              <img src="drewno7.jpg" alt="Produkcja drewna">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-panel">
+              <div class="separator-left">
+                <h2 class="sppb-addon-title">Materiał z charakterem, a nie bezosobowa deska ze składu</h2>
+              </div>
+              <p>
+                W tej wersji wykorzystujemy istniejące assety motywu Joomla i składamy z nich
+                działającą wizualną stronę, żeby można było zobaczyć żywy projekt, a nie tylko katalog ze stylami.
+              </p>
+              <p>
+                Główny język wizualny był już obecny w `custom.css`: uporządkowana siatka,
+                spokojne odcienie drewna, duże nagłówki i karty z wyraźnym stanem hover.
+              </p>
+              <div class="stat-grid">
+                <div class="stat-box">
+                  <strong>15+</strong>
+                  <span>głównych grup produktów</span>
+                </div>
+                <div class="stat-box">
+                  <strong>100%</strong>
+                  <span>lokalne assety bez zewnętrznego builda</span>
+                </div>
+                <div class="stat-box">
+                  <strong>3</strong>
+                  <span>główne kierunki: budowa, wykończenie, ogród</span>
+                </div>
+                <div class="stat-box">
+                  <strong>1</strong>
+                  <span>spójny styl wizualny do dalszych prac</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section-pad-sm" style="background:#faf8f5;">
+      <div class="container section-shell">
+        <div class="separator text-center">
+          <h2 class="sppb-addon-title">Główna oferta</h2>
+        </div>
+        <p class="section-lead">
+          Karty poniżej są zbudowane na istniejących klasach `.services-block`, więc wygląd
+          opiera się na gotowych stylach motywu, a nie na przypadkowym nowym HTML-u.
+        </p>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <article class="services-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="deskapodlogowa_600x600.jpg" alt="Deska podłogowa">
+                  <div class="icon-tag"><span class="icon"><i class="fas fa-border-all"></i></span></div>
+                  <div class="overlay-box">
+                    <div class="overlay-inner">
+                      <div class="content">
+                        <div class="text">Deska podłogowa na pióro i wpust do trwałego i estetycznego wykończenia wnętrz.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lower-box">
+                  <h3>Deska podłogowa</h3>
+                  <div class="hover-title">
+                    <h4><a href="produkty.html#deska-sosnowa">Deska podłogowa</a></h4>
+                    <a class="arrow-box" href="produkty.html#deska-sosnowa"><span class="arrow"><i class="fas fa-angle-right"></i></span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="services-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="deskielewacyjne_600x600.jpg" alt="Deska elewacyjna">
+                  <div class="icon-tag"><span class="icon"><i class="fas fa-home"></i></span></div>
+                  <div class="overlay-box">
+                    <div class="overlay-inner">
+                      <div class="content">
+                        <div class="text">Deska strugana do elewacji, podbitek i zewnętrznych drewnianych akcentów.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lower-box">
+                  <h3>Deska elewacyjna</h3>
+                  <div class="hover-title">
+                    <h4><a href="produkty.html#elewacyjne">Deska elewacyjna</a></h4>
+                    <a class="arrow-box" href="produkty.html#elewacyjne"><span class="arrow"><i class="fas fa-angle-right"></i></span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="services-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="drewnokonstrukcyjne_600x600.jpg" alt="Drewno konstrukcyjne">
+                  <div class="icon-tag"><span class="icon"><i class="fas fa-hammer"></i></span></div>
+                  <div class="overlay-box">
+                    <div class="overlay-inner">
+                      <div class="content">
+                        <div class="text">Belki i drewno konstrukcyjne do szkieletów, wiat, więźby dachowej i elementów nośnych.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lower-box">
+                  <h3>Drewno konstrukcyjne</h3>
+                  <div class="hover-title">
+                    <h4><a href="produkty.html#konstrukcyjne">Drewno konstrukcyjne</a></h4>
+                    <a class="arrow-box" href="produkty.html#konstrukcyjne"><span class="arrow"><i class="fas fa-angle-right"></i></span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="services-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="elementyklejone_600x600.jpg" alt="Elementy klejone">
+                  <div class="icon-tag"><span class="icon"><i class="fas fa-layer-group"></i></span></div>
+                  <div class="overlay-box">
+                    <div class="overlay-inner">
+                      <div class="content">
+                        <div class="text">Elementy klejone dla stabilniejszej geometrii i bardziej precyzyjnego wykończenia.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lower-box">
+                  <h3>Elementy klejone</h3>
+                  <div class="hover-title">
+                    <h4><a href="produkty.html#klejone">Elementy klejone</a></h4>
+                    <a class="arrow-box" href="produkty.html#klejone"><span class="arrow"><i class="fas fa-angle-right"></i></span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="services-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="fryzy_600x600.jpg" alt="Elementy frezowane">
+                  <div class="icon-tag"><span class="icon"><i class="fas fa-drafting-compass"></i></span></div>
+                  <div class="overlay-box">
+                    <div class="overlay-inner">
+                      <div class="content">
+                        <div class="text">Listwy i detale do wnętrz, mebli, konstrukcji ogrodowych i rozwiązań stolarskich.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lower-box">
+                  <h3>Elementy frezowane</h3>
+                  <div class="hover-title">
+                    <h4><a href="produkty.html#fryzy">Elementy frezowane</a></h4>
+                    <a class="arrow-box" href="produkty.html#fryzy"><span class="arrow"><i class="fas fa-angle-right"></i></span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="services-block">
+              <div class="inner-box">
+                <div class="image">
+                  <img src="programogrodowy_600x600.jpg" alt="Program ogrodowy">
+                  <div class="icon-tag"><span class="icon"><i class="fas fa-seedling"></i></span></div>
+                  <div class="overlay-box">
+                    <div class="overlay-inner">
+                      <div class="content">
+                        <div class="text">Materiał na pergole, ogrodzenia, tarasy, dekoracyjne przegrody i małą architekturę.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lower-box">
+                  <h3>Program ogrodowy</h3>
+                  <div class="hover-title">
+                    <h4><a href="produkty.html#ogrod">Program ogrodowy</a></h4>
+                    <a class="arrow-box" href="produkty.html#ogrod"><span class="arrow"><i class="fas fa-angle-right"></i></span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-dark">
+      <div class="container section-shell">
+        <div class="separator text-center">
+          <h2 class="sppb-addon-title">Dlaczego warto z nami pracować</h2>
+        </div>
+        <p class="section-lead">
+          Ten blok korzysta z istniejących kart `.service-block-two`, więc dobrze pokazuje,
+          jak ciemne sekcje motywu zachowują się w żywej wersji strony.
+        </p>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="service-block-two">
+              <div class="inner-box">
+                <div class="icon-box"><i class="fas fa-cogs"></i></div>
+                <div class="content">
+                  <h3><a href="kontakt.html">Dobór przekrojów</a></h3>
+                  <div class="text">Kompletujemy zamówienie nie tylko według nazwy produktu, ale przede wszystkim pod konkretną realizację.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service-block-two">
+              <div class="inner-box">
+                <div class="icon-box"><i class="fas fa-ruler"></i></div>
+                <div class="content">
+                  <h3><a href="jakosc.html">Stabilna geometria</a></h3>
+                  <div class="text">Stawiamy na dokładną obróbkę i czytelne sortowanie materiału.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service-block-two">
+              <div class="inner-box">
+                <div class="icon-box"><i class="fas fa-warehouse"></i></div>
+                <div class="content">
+                  <h3><a href="park-maszynowy.html">Czytelny magazyn</a></h3>
+                  <div class="text">Szybko pokazujemy dostępne pozycje, stany magazynowe i możliwe zamienniki.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service-block-two">
+              <div class="inner-box">
+                <div class="icon-box"><i class="fas fa-handshake"></i></div>
+                <div class="content">
+                  <h3><a href="kontakt.html">Sprawna komunikacja</a></h3>
+                  <div class="text">Bez zbędnej biurokracji: szybko ustalamy ilości, format i przygotowanie do wysyłki.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-pad">
+      <div class="container section-shell">
+        <div class="separator text-center">
+          <h2 class="sppb-addon-title">Materiał w realizacjach</h2>
+        </div>
+        <p class="section-lead">
+          Ponieważ nie mamy jeszcze oryginalnych stron HTML serwisu, ten blok pokazuje,
+          jak można złożyć wewnętrzne sekcje z dostępnych zdjęć i typografii motywu.
+        </p>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="project-photo"><img src="top1.jpg" alt="Realizacja 1"></div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-photo"><img src="top2.jpg" alt="Realizacja 2"></div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="project-photo"><img src="top3.jpg" alt="Realizacja 3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section-pad-sm" style="background:#faf8f5;">
+      <div class="container section-shell home-article">
+        <div class="separator text-center">
+          <h2 class="sppb-addon-title">Aktualności i porady</h2>
+        </div>
+        <p class="section-lead">
+          Blok artykułów jest potrzebny nie tylko dla treści, ale też po to, by sprawdzić
+          istniejące style kart `.sppb-addon-article` i ich stany hover.
+        </p>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <article class="sppb-addon-article">
+              <div class="sppb-img-responsive" style="background-image:url('aktualnosci.jpg');"></div>
+              <h3><a href="porady.html">Jak wybrać suchą deskę na elewację i taras</a></h3>
+              <div class="sppb-article-meta">Produkcja · 30 marca 2026</div>
+              <div class="sppb-article-introtext">
+                Krótki przewodnik po wilgotności, geometrii i podstawowych kryteriach sortowania przy zakupie.
+              </div>
+              <a class="sppb-readmore" href="porady.html">Czytaj więcej</a>
+            </article>
+          </div>
+          <div class="col-lg-4">
+            <article class="sppb-addon-article">
+              <div class="sppb-img-responsive" style="background-image:url('porady.jpg');"></div>
+              <h3><a href="porady.html">Co sprawdzić przed zamówieniem drewna konstrukcyjnego</a></h3>
+              <div class="sppb-article-meta">Porady · 30 marca 2026</div>
+              <div class="sppb-article-introtext">
+                Wyjaśniamy, jakie wymiary, tolerancje i rodzaje obróbki warto ustalić przed wysyłką.
+              </div>
+              <a class="sppb-readmore" href="porady.html">Czytaj więcej</a>
+            </article>
+          </div>
+          <div class="col-lg-4">
+            <article class="sppb-addon-article">
+              <div class="sppb-img-responsive" style="background-image:url('projekty.jpg');"></div>
+              <h3><a href="aktualnosci.html">Jak z assetów zbudować działającą stronę do prezentacji projektu</a></h3>
+              <div class="sppb-article-meta">Prezentacja · 30 marca 2026</div>
+              <div class="sppb-article-introtext">
+                Właśnie to zrobiliśmy tutaj: złożyliśmy działającą witrynę bez źródłowych szablonów Joomla, ale zgodnie z logiką motywu.
+              </div>
+              <a class="sppb-readmore" href="aktualnosci.html">Czytaj więcej</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad">
+      <div class="container section-shell">
+        <div class="separator text-center">
+          <h2 class="sppb-addon-title">Opinie i doświadczenia</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="testimonial-block">
+              <div class="inner-box">
+                <div class="upper-box">
+                  <div class="author-info">
+                    <div class="author-inner">
+                      <div class="image"><img src="parkmaszynowy1.jpg" alt="Klient"></div>
+                      <h3>Jan P.</h3>
+                      <div class="location">Inwestor prywatny</div>
+                    </div>
+                  </div>
+                  <div class="days">Realizacja: sauna i taras</div>
+                </div>
+                <div class="lower-box">
+                  <div class="text">Materiał przyjechał równy, pozycje były czytelne, bez niekończących się doprecyzowań i chaosu w sortowaniu.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-block">
+              <div class="inner-box">
+                <div class="upper-box">
+                  <div class="author-info">
+                    <div class="author-inner">
+                      <div class="image"><img src="parkmaszynowy2.jpg" alt="Klient"></div>
+                      <h3>Aleksiej S.</h3>
+                      <div class="location">Pracownia stolarska</div>
+                    </div>
+                  </div>
+                  <div class="days">Realizacja: seria elementów ogrodowych</div>
+                </div>
+                <div class="lower-box">
+                  <div class="text">Najbardziej doceniam to, że można szybko ustalić wymiary i dostać przejrzysty komplet elementów bez bałaganu.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-block">
+              <div class="inner-box">
+                <div class="upper-box">
+                  <div class="author-info">
+                    <div class="author-inner">
+                      <div class="image"><img src="tartak.jpg" alt="Klient"></div>
+                      <h3>Marina K.</h3>
+                      <div class="location">Projektantka wnętrz</div>
+                    </div>
+                  </div>
+                  <div class="days">Realizacja: wykończenie domu pod miastem</div>
+                </div>
+                <div class="lower-box">
+                  <div class="text">Estetyka marki oparta na drewnie jest czytelna i teraz można ją spokojnie przenosić na kolejne podstrony serwisu.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-pad-sm" style="background:#faf8f5;">
+      <div class="container section-shell">
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="contact-panel">
+              <div class="separator-left">
+                <h2 class="sppb-addon-title">Kontakt i zapytanie o wycenę</h2>
+              </div>
+              <ul class="contact-list">
+                <li>
+                  <i class="fas fa-phone-alt"></i>
+                  <div>
+                    <strong>Telefon</strong>
+                    +375 (29) 111-22-33
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <strong>E-mail</strong>
+                    info@tartak-tyble.by
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    <strong>Adres</strong>
+                    Plac produkcyjny i magazyn wyrobów gotowych
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-clock"></i>
+                  <div>
+                    <strong>Godziny pracy</strong>
+                    Pon.–Pt.: 8:00–17:00
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="contact-panel border-contact">
+              <div class="separator-left">
+                <h2 class="sppb-addon-title">Wyślij zapytanie</h2>
+              </div>
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <input type="text" class="sppb-form-control" placeholder="Imię i nazwisko">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="tel" class="sppb-form-control" placeholder="Telefon">
+                  </div>
+                  <div class="col-12">
+                    <input type="text" class="sppb-form-control" placeholder="Czego potrzebujesz: deska, belka, elewacja, taras">
+                  </div>
+                  <div class="col-12">
+                    <textarea class="sppb-form-control" rows="6" placeholder="Krótko opisz ilość, wymiary i zakres zamówienia"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary" type="button">Wyślij zapytanie</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="sp-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 sppb-col-md-4">
+          <div class="sppb-column-addons">
+            <h3 class="sppb-addon-title">O firmie</h3>
+            <img class="footer-logo" src="logo-small1.png" alt="Logo">
+            <p>
+              Ta lokalna strona została złożona z dostępnych assetów, żeby można było zobaczyć
+              realny wygląd projektu i na tej bazie ujednolicić kolejne podstrony.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 sppb-col-md-4">
+          <div class="sppb-column-addons">
+            <h3 class="sppb-addon-title">Zakres oferty</h3>
+            <div class="sp-module-content">
+              <ul class="latestnews list-unstyled">
+                <li><a href="produkty.html#deska-sosnowa">Deska podłogowa <span>Wykończenie na pióro i wpust</span></a></li>
+                <li><a href="produkty.html#elewacyjne">Deska elewacyjna <span>Rozwiązania zewnętrzne</span></a></li>
+                <li><a href="produkty.html#konstrukcyjne">Drewno konstrukcyjne <span>Budowa i szkielet</span></a></li>
+                <li><a href="produkty.html#ogrod">Program ogrodowy <span>Mała architektura</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 sppb-col-md-4">
+          <div class="sppb-column-addons">
+            <h3 class="sppb-addon-title">Szybki kontakt</h3>
+            <div class="sp-module-content">
+              <ul class="latestnews list-unstyled">
+                <li><a href="tel:+375291112233">+375 (29) 111-22-33 <span>kontakt w dni robocze</span></a></li>
+                <li><a href="mailto:info@tartak-tyble.by">info@tartak-tyble.by <span>zapytania i specyfikacje</span></a></li>
+                <li><a href="kontakt.html">Formularz kontaktowy <span>wyślij zapytanie o wycenę</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="sp-footer">
+    <div class="container">
+      <div class="row">
+        <div id="sp-footer1" class="col-12">
+          <div class="sp-copyright">
+            Testowa wersja strony głównej z lokalnych assetów przygotowana jako baza do ujednolicenia całego serwisu.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap-es5.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
