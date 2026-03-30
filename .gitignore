@@ -1,0 +1,6 @@
+.DS_Store
+
+# Offer artifacts
+oferta-tartak-tyble.html
+output/pdf/oferta-tartak-tyble.pdf
+tmp/pdfs/
