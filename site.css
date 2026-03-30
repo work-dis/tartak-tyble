@@ -348,6 +348,11 @@ a:hover {
   margin-bottom: 0;
 }
 
+.article-card .content-card {
+  border: 0;
+  padding: 28px 28px 0;
+}
+
 .meta-line {
   margin-bottom: 12px;
   color: #8a817d;
